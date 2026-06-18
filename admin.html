@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理 - 陳聖典老師個人資歷</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <main class="page">
+        <header>
+            <div>
+                <h1>後台管理</h1>
+                <p class="hint">儲存後回到前台，`memu.html` 會套用這裡的內容。清單欄位請一行輸入一筆，也可以按住「拖拉」調整順序。</p>
+            </div>
+            <a class="button" href="memu.html">回前台</a>
+        </header>
+
+        <div class="toolbar">
+            <button class="button primary" type="button" id="saveButton">儲存內容</button>
+            <button class="button" type="button" id="loadButton">重新載入</button>
+            <button class="button danger" type="button" id="resetButton">恢復預設</button>
+            <span class="status" id="statusText"></span>
+        </div>
+
+        <form id="resumeForm">
+            <section class="section">
+                <h2>首頁與照片</h2>
+                <div class="grid">
+                    <label class="wide">
+                        簡介文字
+                        <textarea id="summary"></textarea>
+                    </label>
+                    <div class="item-editor">
+                        <label>照片</label>
+                        <div id="photoItems"></div>
+                        <button class="button" type="button" id="choosePhotoButton">選擇照片加入</button>
+                        <input class="visually-hidden" id="photoFileInput" type="file" accept="image/*" multiple>
+                    </div>
+                    <label>
+                        照片說明
+                        <input id="photoCaption" type="text">
+                    </label>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>個人資料</h2>
+                <div class="grid">
+                    <label>
+                        姓名
+                        <input id="name" type="text">
+                    </label>
+                    <label>
+                        性別
+                        <input id="gender" type="text">
+                    </label>
+                    <label>
+                        生日
+                        <input id="birthday" type="text">
+                    </label>
+                    <label>
+                        地址
+                        <input id="address" type="text">
+                    </label>
+                    <label>
+                        手機號碼
+                        <input id="phone" type="text">
+                    </label>
+                    <label>
+                        Facebook
+                        <input id="facebook" type="text">
+                    </label>
+                    <label>
+                        Line ID
+                        <input id="line" type="text">
+                    </label>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>資歷與演出</h2>
+                <div class="grid">
+                    <div class="wide item-editor">
+                        <label>個人資歷</label>
+                        <div id="careerItems"></div>
+                        <button class="button" type="button" data-add-list="careerItems">新增一筆個人資歷</button>
+                    </div>
+                    <div class="item-editor">
+                        <label>演出經歷</label>
+                        <div id="performanceItems"></div>
+                        <button class="button" type="button" data-add-list="performanceItems">新增一筆演出經歷</button>
+                    </div>
+                    <label>
+                        演出補充
+                        <textarea id="performanceSub"></textarea>
+                    </label>
+                    <div class="wide item-editor">
+                        <label>合作藝人</label>
+                        <div id="artistItems"></div>
+                        <button class="button" type="button" data-add-list="artistItems">新增一筆合作藝人</button>
+                    </div>
+                    <div class="item-editor">
+                        <label>得獎紀錄</label>
+                        <div id="awardsItems"></div>
+                        <button class="button" type="button" data-add-list="awardsItems">新增一筆得獎紀錄</button>
+                    </div>
+                    <label>
+                        評審經歷
+                        <textarea id="judge"></textarea>
+                    </label>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>教學經歷</h2>
+                <div class="grid">
+                    <div class="item-editor">
+                        <label>音樂教室</label>
+                        <div id="musicRoomItems"></div>
+                        <button class="button" type="button" data-add-list="musicRoomItems">新增一筆音樂教室</button>
+                    </div>
+                    <div class="item-editor">
+                        <label>社團</label>
+                        <div id="clubItems"></div>
+                        <button class="button" type="button" data-add-list="clubItems">新增一筆社團</button>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+    <script src="common.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
+

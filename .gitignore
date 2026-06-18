@@ -1,0 +1,10 @@
+.venv/
+.vscode/
+
+uploads/*
+!uploads/.gitkeep
+
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
