@@ -2,7 +2,7 @@ const ResumeApp = (() => {
     const storageKey = "memuResumeData";
 
     const defaultData = {
-        contentVersion: 4,
+        contentVersion: 5,
         summary: "不限年齡與程度，提供貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導。依照你的目標與練習時間安排進度，從零基礎入門、技巧提升到舞台演出，都能找到適合自己的學習方式。",
         photo: "IMG_5952.JPG",
         photos: ["IMG_5952.JPG"],
@@ -17,9 +17,6 @@ const ResumeApp = (() => {
             line: "Sylvesterex"
         },
         career: [
-            "雅痞書店 音控",
-            "Clash New Taipei 音控",
-            "Oldie Goodie Live Music House 音控",
             "MileStone 樂團 貝斯手",
             "民生社區管樂團 貝斯手",
             "絲竹空青年團 貝斯手",
@@ -31,7 +28,10 @@ const ResumeApp = (() => {
             "磐石現代樂團 貝斯手",
             "八角塔男聲合唱團 第二男高音",
             "聖約翰科技大學 Dream 音樂創作研究社 創辦人",
-            "國防大學 音控講師"
+            "國防大學 音控講師",
+            "雅痞書店 音控",
+            "Clash New Taipei 音控",
+            "Oldie Goodie Live Music House 音控"
         ],
         performance: {
             main: "天作之合劇場《寂寞瑪奇朵》音樂劇樂手",
@@ -175,10 +175,24 @@ const ResumeApp = (() => {
             ];
             const existingCareer = Array.isArray(source.career) ? source.career : [];
             source.career = [
-                ...soundEngineeringExperience,
-                ...existingCareer.filter((item) => !soundEngineeringExperience.includes(item))
+                ...existingCareer.filter((item) => !soundEngineeringExperience.includes(item)),
+                ...soundEngineeringExperience
             ];
             source.contentVersion = 4;
+        }
+
+        if ((source.contentVersion || 1) < 5) {
+            const soundEngineeringExperience = [
+                "雅痞書店 音控",
+                "Clash New Taipei 音控",
+                "Oldie Goodie Live Music House 音控"
+            ];
+            const existingCareer = Array.isArray(source.career) ? source.career : [];
+            source.career = [
+                ...existingCareer.filter((item) => !soundEngineeringExperience.includes(item)),
+                ...soundEngineeringExperience
+            ];
+            source.contentVersion = 5;
         }
 
         const normalized = mergeDeep(defaultData, source);
