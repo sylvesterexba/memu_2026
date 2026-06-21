@@ -46,7 +46,15 @@
 
             <aside class="photo-panel" aria-label="教師照片">
                 <div class="photo-placeholder">
-                    <img class="profile-photo" id="profile-photo" src="IMG_5952.JPG" alt="陳聖典老師演奏照片">
+                    <picture>
+                        <source class="profile-photo-mobile" media="(max-width: 680px)" srcset="IMG_5952-mobile.jpg">
+                        <img class="profile-photo" id="profile-photo" src="IMG_5952.JPG" alt="陳聖典老師演奏貝斯">
+                    </picture>
+                    <div class="mobile-hero-copy">
+                        <p>雙北流行樂器教學｜實體・到府・線上</p>
+                        <h2>從喜歡的一首歌開始，練出真正能演奏的能力</h2>
+                        <a class="button primary" href="https://line.me/ti/p/~Sylvesterex" target="_blank" rel="noopener">LINE 詢問課程</a>
+                    </div>
                     <button class="carousel-button prev" id="photo-prev" type="button" aria-label="上一張照片">‹</button>
                     <button class="carousel-button next" id="photo-next" type="button" aria-label="下一張照片">›</button>
                     <div class="carousel-dots" id="photo-dots" aria-label="照片輪播指示"></div>

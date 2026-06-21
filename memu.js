@@ -39,6 +39,7 @@ function renderList(selector, items, visibleCount = 5) {
 
 function setupPhotoCarousel(photos) {
     const image = document.querySelector("#profile-photo");
+    const mobileSource = document.querySelector(".profile-photo-mobile");
     const prevButton = document.querySelector("#photo-prev");
     const nextButton = document.querySelector("#photo-next");
     const dots = document.querySelector("#photo-dots");
@@ -50,7 +51,11 @@ function setupPhotoCarousel(photos) {
     }
 
     function renderPhoto() {
-        image.src = validPhotos[currentIndex];
+        const currentPhoto = validPhotos[currentIndex];
+        image.src = currentPhoto;
+        if (mobileSource) {
+            mobileSource.srcset = currentPhoto === "IMG_5952.JPG" ? "IMG_5952-mobile.jpg" : currentPhoto;
+        }
         dots.textContent = "";
 
         validPhotos.forEach((photo, index) => {
