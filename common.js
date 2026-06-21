@@ -2,7 +2,7 @@ const ResumeApp = (() => {
     const storageKey = "memuResumeData";
 
     const defaultData = {
-        contentVersion: 3,
+        contentVersion: 4,
         summary: "不限年齡與程度，提供貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導。依照你的目標與練習時間安排進度，從零基礎入門、技巧提升到舞台演出，都能找到適合自己的學習方式。",
         photo: "IMG_5952.JPG",
         photos: ["IMG_5952.JPG"],
@@ -17,6 +17,9 @@ const ResumeApp = (() => {
             line: "Sylvesterex"
         },
         career: [
+            "雅痞書店 音控",
+            "Clash New Taipei 音控",
+            "Oldie Goodie Live Music House 音控",
             "MileStone 樂團 貝斯手",
             "民生社區管樂團 貝斯手",
             "絲竹空青年團 貝斯手",
@@ -162,6 +165,20 @@ const ResumeApp = (() => {
                 ];
             }
             source.contentVersion = 3;
+        }
+
+        if ((source.contentVersion || 1) < 4) {
+            const soundEngineeringExperience = [
+                "雅痞書店 音控",
+                "Clash New Taipei 音控",
+                "Oldie Goodie Live Music House 音控"
+            ];
+            const existingCareer = Array.isArray(source.career) ? source.career : [];
+            source.career = [
+                ...soundEngineeringExperience,
+                ...existingCareer.filter((item) => !soundEngineeringExperience.includes(item))
+            ];
+            source.contentVersion = 4;
         }
 
         const normalized = mergeDeep(defaultData, source);
