@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳聖典老師｜流行音樂樂器教學</title>
+    <meta name="description" content="陳聖典老師提供雙北貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導，涵蓋初、中、高階，一對一、團體、到府及線上皆可洽詢。">
+    <title>陳聖典老師｜雙北流行樂器教學</title>
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="memu.css">
 </head>
 <body>
-    <main class="page">
+    <!-- 主要導覽：讓訪客能快速找到課程、授課方式與預約入口。 -->
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="回到首頁">
+            <span class="brand-mark">S</span>
+            <span>陳聖典老師<small>流行樂器教學</small></span>
+        </a>
+        <nav class="site-nav" aria-label="主要導覽">
+            <a href="#courses">課程項目</a>
+            <a href="#formats">上課方式</a>
+            <a href="#about">關於老師</a>
+            <a href="#faq">常見問題</a>
+        </nav>
+        <a class="button primary header-cta" href="https://line.me/ti/p/~Sylvesterex" target="_blank" rel="noopener">LINE 詢問</a>
+    </header>
+
+    <main class="page" id="top">
+        <!-- 首屏先說明招生定位、適合對象與最主要的聯絡方式。 -->
         <section class="hero" aria-labelledby="page-title">
             <div class="intro">
-                <p class="eyebrow">雙北樂器課程 / 樂團指導 / 現場演出訓練</p>
-                <h1 id="page-title">把喜歡的歌，練成真的舞台能力</h1>
-                <p class="lead" id="resume-summary">從初學入門到樂團實戰，提供貝斯、吉他、爵士鼓、烏克麗麗與木箱鼓課程。以舞台經驗結合系統化教學，陪你把喜歡的音樂真正演奏出來。</p>
+                <p class="eyebrow">雙北流行樂器教學｜實體・到府・線上</p>
+                <h1 id="page-title">從喜歡的一首歌開始，練出真正能演奏的能力</h1>
+                <p class="lead" id="resume-summary">不限年齡與程度，提供貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導。依照你的目標與練習時間安排進度，從零基礎入門、技巧提升到舞台演出，都能找到適合自己的學習方式。</p>
                 <div class="action-row" aria-label="快速連結">
-                    <a class="button primary" id="call-button" href="tel:0982569510">立即預約諮詢</a>
+                    <a class="button primary" href="https://line.me/ti/p/~Sylvesterex" target="_blank" rel="noopener">LINE 詢問課程</a>
                     <a class="button" href="#courses">查看課程</a>
-                    <a class="button" href="#proof">演出資歷</a>
+                    <a class="button ghost" href="#about">認識老師</a>
                 </div>
                 <div class="hero-stats" aria-label="教學亮點">
-                    <div>
-                        <strong>2004+</strong>
-                        <span>開始教學</span>
-                    </div>
-                    <div>
-                        <strong>5+</strong>
-                        <span>樂器項目</span>
-                    </div>
-                    <div>
-                        <strong>雙北</strong>
-                        <span>教學區域</span>
-                    </div>
+                    <div><strong>2004</strong><span>年起投入教學</span></div>
+                    <div><strong>5+</strong><span>流行樂器課程</span></div>
+                    <div><strong>初・中・高</strong><span>依程度安排</span></div>
+                    <div><strong>雙北／線上</strong><span>多元授課方式</span></div>
                 </div>
             </div>
 
             <aside class="photo-panel" aria-label="教師照片">
                 <div class="photo-placeholder">
-                    <img class="profile-photo" id="profile-photo" src="IMG_5952.JPG" alt="陳聖典老師個人照片">
+                    <img class="profile-photo" id="profile-photo" src="IMG_5952.JPG" alt="陳聖典老師演奏照片">
                     <button class="carousel-button prev" id="photo-prev" type="button" aria-label="上一張照片">‹</button>
                     <button class="carousel-button next" id="photo-next" type="button" aria-label="下一張照片">›</button>
                     <div class="carousel-dots" id="photo-dots" aria-label="照片輪播指示"></div>
@@ -46,107 +55,95 @@
             </aside>
         </section>
 
-        <section class="quick-info" id="contact" aria-label="快速聯絡資訊">
-            <div class="contact-card">
-                <span>預約電話</span>
-                <strong id="quick-phone">0982569510</strong>
+        <section class="section audience-section" aria-labelledby="audience-title">
+            <div class="section-heading centered">
+                <p class="eyebrow">FOR EVERY PLAYER</p>
+                <h2 id="audience-title">不論從哪裡開始，都有適合你的進度</h2>
+                <p>年齡不是限制，有沒有基礎也不是問題。課程會依照你的程度、目標與可練習時間調整。</p>
             </div>
-            <div class="contact-card">
-                <span>Line ID</span>
-                <strong id="quick-line">Sylvesterex</strong>
-            </div>
-            <div class="contact-card">
-                <span>Facebook</span>
-                <strong id="quick-facebook">陳 聖 典</strong>
-            </div>
-            <div class="contact-card">
-                <span>教學區域</span>
-                <strong id="quick-address">雙北</strong>
+            <div class="audience-grid">
+                <article><span>01</span><h3>初階入門</h3><p>從姿勢、節奏與簡單歌曲開始，為第一次接觸樂器或想重新打好基礎的你建立正確習慣。</p></article>
+                <article><span>02</span><h3>中階提升</h3><p>透過實際曲目改善節奏、技巧、音色與抓歌能力，讓演奏更穩定、更有音樂感。</p></article>
+                <article><span>03</span><h3>高階實戰</h3><p>針對演出、合奏、即興與進階細節深入訓練，把技巧轉化成真正能在舞台使用的能力。</p></article>
+                <article><span>04</span><h3>樂團與社團</h3><p>協助團員分工、編曲、排練、音色配置與舞台呈現，讓整團練得更有效率。</p></article>
             </div>
         </section>
 
-        <section class="section promo-section" id="courses" aria-labelledby="courses-title">
+        <section class="section" id="courses" aria-labelledby="courses-title">
             <div class="section-header">
-                <h2 id="courses-title">適合你的流行音樂課程</h2>
-                <span class="tag">Courses</span>
+                <div><p class="eyebrow">COURSES</p><h2 id="courses-title">選一項喜歡的樂器，開始音樂旅程</h2></div>
+                <p>課程內容會依程度與目標調整，不必套用同一份進度。</p>
             </div>
             <div class="course-grid">
-                <article class="course-card">
-                    <span>01</span>
-                    <h3>貝斯 / 吉他</h3>
-                    <p>從節奏、和弦到歌曲應用，建立能跟團、能抓歌、能穩定演出的基本功。</p>
-                </article>
-                <article class="course-card">
-                    <span>02</span>
-                    <h3>爵士鼓 / 木箱鼓</h3>
-                    <p>訓練拍感、肢體協調與 Groove，讓節奏不只是打對，而是能撐起整首歌。</p>
-                </article>
-                <article class="course-card">
-                    <span>03</span>
-                    <h3>烏克麗麗</h3>
-                    <p>適合零基礎與社團課程，用輕鬆的方式學會彈唱、伴奏與節奏變化。</p>
-                </article>
-                <article class="course-card">
-                    <span>04</span>
-                    <h3>樂團指導</h3>
-                    <p>協助團員分工、編曲、排練與舞台呈現，讓練團更有效率也更像一個團。</p>
-                </article>
+                <article class="course-card"><span>01</span><h3>貝斯</h3><p>從節奏、指法與音色開始，逐步學習歌曲分析、抓歌及合奏觀念，建立穩定支撐樂團的能力。</p></article>
+                <article class="course-card"><span>02</span><h3>吉他</h3><p>依照彈唱、伴奏或樂團演奏需求，學習和弦、節奏、指法與歌曲應用。</p></article>
+                <article class="course-card"><span>03</span><h3>爵士鼓</h3><p>訓練拍感、肢體協調與 Groove，從基本節奏到歌曲演奏，讓鼓點能帶動整首歌。</p></article>
+                <article class="course-card"><span>04</span><h3>烏克麗麗</h3><p>適合零基礎、兒童、成人與團體課程，從簡單和弦與節奏開始，輕鬆進入彈唱與伴奏。</p></article>
+                <article class="course-card"><span>05</span><h3>木箱鼓</h3><p>學習基本音色、節奏型與歌曲搭配，適合彈唱伴奏、小型演出與居家練習。</p></article>
+                <article class="course-card featured"><span>06</span><h3>樂團指導</h3><p>從個別能力、團員分工到完整排練，協助改善節奏、編曲、音色與舞台呈現。</p></article>
             </div>
         </section>
 
-        <section class="section split-section" aria-labelledby="method-title">
+        <section class="section formats-section" id="formats" aria-labelledby="formats-title">
+            <div class="section-heading centered">
+                <p class="eyebrow">FLEXIBLE LEARNING</p>
+                <h2 id="formats-title">選擇符合生活安排的上課方式</h2>
+            </div>
+            <div class="format-grid">
+                <article><span class="format-icon">1:1</span><h3>一對一課程</h3><p>依個人程度與目標安排，適合希望獲得完整指導並穩定提升的學生。</p></article>
+                <article><span class="format-icon">多人</span><h3>團體課程</h3><p>適合親友共學、學校社團、教會及其他團體，依人數與共同目標安排內容。</p></article>
+                <article><span class="format-icon">到府</span><h3>雙北家教</h3><p>可依雙北地區與交通條件討論授課地點，在熟悉的環境中安心學習。</p></article>
+                <article><span class="format-icon">Online</span><h3>線上課程</h3><p>不受地區限制，透過視訊進行技巧指導、歌曲分析與練習檢查。</p></article>
+            </div>
+            <p class="section-note">上課時間、地點、課程長度與費用，會依實際需求個別確認，歡迎先來訊討論。</p>
+        </section>
+
+        <section class="section split-section method-section" aria-labelledby="method-title">
             <div>
-                <div class="section-header compact">
-                    <h2 id="method-title">不只上課，也練出能用的能力</h2>
-                    <span class="tag">Method</span>
-                </div>
-                <p class="section-lead">課程會依照程度、目標曲目與可練習時間調整，讓學生能穩定累積成果。</p>
+                <p class="eyebrow">TEACHING METHOD</p>
+                <h2 id="method-title">不只教你怎麼彈，也陪你理解音樂</h2>
+                <p class="section-lead">把較大的學習目標拆成能完成的小步驟，逐步建立節奏、技巧與演奏信心。</p>
             </div>
             <div class="feature-list">
-                <div>
-                    <strong>客製進度</strong>
-                    <span>依照初學、進階、社團或表演需求安排內容。</span>
-                </div>
-                <div>
-                    <strong>歌曲導向</strong>
-                    <span>用學生想彈的歌建立技巧，學完能直接演奏。</span>
-                </div>
-                <div>
-                    <strong>舞台經驗</strong>
-                    <span>把現場會遇到的節奏、音色、配合放進課程。</span>
-                </div>
+                <div><strong>歌曲導向</strong><span>從你喜歡的歌曲出發，在實際演奏中學習技巧與音樂觀念。</span></div>
+                <div><strong>客製進度</strong><span>依照程度、目標與可練習時間調整，不要求每個人用同一種方式學習。</span></div>
+                <div><strong>實戰經驗</strong><span>把舞台與樂團經驗帶進課程，理解合奏時真正會遇到的問題。</span></div>
             </div>
         </section>
 
-        <section class="section" id="proof" aria-labelledby="proof-title">
+        <section class="section about-section" id="about" aria-labelledby="about-title">
+            <div class="about-copy">
+                <p class="eyebrow">ABOUT THE TEACHER</p>
+                <h2 id="about-title">陳聖典老師</h2>
+                <p>自 2004 年起投入流行樂器教學，教授貝斯、吉他、爵士鼓、烏克麗麗與木箱鼓，並具備樂團指導、音控、劇場及現場演出經驗。</p>
+                <p>教學不只著重技巧，也重視學生是否能理解歌曲、穩定掌握節奏，並把所學真正運用在彈唱、合奏或舞台演出中。</p>
+                <a class="text-link" href="#proof">查看演出與教學資歷 →</a>
+            </div>
+            <blockquote>「學音樂不是追趕別人的進度，而是一步一步，讓自己真正演奏出喜歡的聲音。」</blockquote>
+        </section>
+
+        <section class="section proof-section" id="proof" aria-labelledby="proof-title">
             <div class="section-header">
-                <h2 id="proof-title">資歷不是堆清單，是教學的底氣</h2>
-                <span class="tag">Stage Proof</span>
+                <div><p class="eyebrow">STAGE EXPERIENCE</p><h2 id="proof-title">從舞台累積的經驗，帶回每一堂課</h2></div>
             </div>
             <div class="proof-grid">
                 <article class="proof-card">
                     <p class="proof-label">代表演出</p>
                     <ul class="wide-list" id="performance-list">
                         <li>天作之合劇場《寂寞瑪奇朵》音樂劇樂手</li>
+                        <li>躍演《勸世三姊妹》中文音樂劇 樂手</li>
                     </ul>
-                    <p id="performance-sub">曾於國家音樂廳、河岸留言等知名 Live House 與音樂場館演出，累積劇場、樂團、流行音樂與現場支援經驗。</p>
+                    <p id="performance-sub">曾於國家音樂廳、河岸留言等音樂場館演出，累積音樂劇、樂團、流行音樂及現場支援經驗。</p>
                 </article>
                 <article class="proof-card">
                     <p class="proof-label">合作藝人</p>
-                    <ul class="chip-list" id="artists-list">
-                        <li>紀文惠</li>
-                        <li>古皓</li>
-                        <li>簡愛</li>
-                        <li>李玖哲</li>
-                        <li>倪子鈞</li>
-                        <li>辛龍</li>
-                    </ul>
+                    <ul class="chip-list" id="artists-list"><li>黃宣</li><li>紀文惠</li><li>古皓</li><li>簡愛</li><li>李玖哲</li><li>倪子鈞</li></ul>
                 </article>
                 <article class="proof-card">
                     <p class="proof-label">獲獎與評審</p>
                     <ul class="wide-list" id="awards-list">
-                        <li>第十八屆 YAMAHA 熱音大賽北區地區賽 冠軍</li>
-                        <li>第十八屆 YAMAHA 熱音大賽全國總決賽 未來之星獎</li>
+                        <li>第十八屆 YAMAHA 熱音大賽北區地區賽冠軍</li>
+                        <li>第十八屆 YAMAHA 熱音大賽全國總決賽未來之星獎</li>
                         <li>第一屆捷運盃熱音大賽優選樂團</li>
                     </ul>
                     <p id="judge"><strong>評審經歷：</strong>各大專院校等多項歌唱比賽評審</p>
@@ -154,92 +151,57 @@
             </div>
         </section>
 
-        <section class="section" aria-labelledby="career-title">
-            <div class="section-header">
-                <h2 id="career-title">樂團與專業經歷</h2>
-                <span class="tag">Experience</span>
-            </div>
-            <div class="experience-layout">
-                <div>
-                    <p class="section-lead">保留重點資歷做信任背書，完整列表可展開查看。</p>
-                </div>
-                <ul id="career-list">
-                    <li>MileStone 樂團 貝斯手</li>
-                    <li>民生社區管樂團 貝斯手</li>
-                    <li>絲竹空青年團 貝斯手</li>
-                    <li>拉丁信差樂團 貝斯手</li>
-                </ul>
-            </div>
+        <section class="section experience-section" aria-labelledby="career-title">
+            <div class="section-header"><div><p class="eyebrow">EXPERIENCE</p><h2 id="career-title">樂團與專業經歷</h2></div><p>橫跨樂團、音控與音樂教育，累積多元的實務視角。</p></div>
+            <ul id="career-list"><li>MileStone 樂團 貝斯手</li><li>民生社區管樂團 貝斯手</li><li>絲竹空青年團 貝斯手</li><li>拉丁信差樂團 貝斯手</li></ul>
         </section>
 
         <section class="section" id="teaching" aria-labelledby="teaching-title">
-            <div class="section-header">
-                <h2 id="teaching-title">教學經歷（2004 年起）</h2>
-                <span class="tag">Teaching</span>
-            </div>
+            <div class="section-header"><div><p class="eyebrow">TEACHING SINCE 2004</p><h2 id="teaching-title">教學經歷</h2></div><p>曾於雙北音樂教室、學校、社區大學、教會及團體授課。</p></div>
             <div class="teaching-grid">
-                <article class="proof-card">
-                    <p class="proof-label">音樂教室</p>
-                    <ul id="music-room-list">
-                        <li>台北「阿通伯樂器」貝斯教師</li>
-                        <li>台北「玩家樂器」貝斯教師</li>
-                        <li>萬華「拍譜音樂」貝斯教師</li>
-                        <li>永和「久大樂器行」貝斯、吉他教師</li>
-                    </ul>
-                </article>
-                <article class="proof-card">
-                    <p class="proof-label">社團與團體課</p>
-                    <ul id="club-list">
-                        <li>台北「公館國小」烏克麗麗教師</li>
-                        <li>新莊「新莊高中」爵士鼓教師</li>
-                        <li>台北「中山社大」烏克麗麗教師</li>
-                        <li>木柵「明道國小」爵士鼓教師</li>
-                    </ul>
-                </article>
+                <article class="proof-card"><p class="proof-label">音樂教室</p><ul id="music-room-list"><li>台北「阿通伯樂器」貝斯教師</li><li>台北「玩家樂器」貝斯教師</li><li>萬華「拍譜音樂」貝斯教師</li><li>永和「久大樂器行」貝斯、吉他教師</li></ul></article>
+                <article class="proof-card"><p class="proof-label">社團與團體課</p><ul id="club-list"><li>台北「公館國小」烏克麗麗教師</li><li>新莊「新莊高中」爵士鼓教師</li><li>台北「中山社大」烏克麗麗教師</li><li>木柵「明道國小」爵士鼓教師</li></ul></article>
             </div>
         </section>
 
-        <section class="cta-band" aria-labelledby="cta-title">
+        <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+            <div class="section-heading centered"><p class="eyebrow">FAQ</p><h2 id="faq-title">上課前，你可能想知道</h2></div>
+            <div class="faq-list">
+                <details><summary>完全沒有基礎也可以嗎？</summary><p>可以。課程涵蓋初階、中階與高階，會先了解你的經驗與目標，再安排適合的內容。</p></details>
+                <details><summary>有年齡限制嗎？</summary><p>沒有特別限制。兒童、學生與成人皆可詢問，實際課程會依年齡、理解方式與學習目標調整。</p></details>
+                <details><summary>一定要會看五線譜嗎？</summary><p>不需要。初學課程會從必要的節奏與音樂觀念開始，不會把識譜能力當成入門門檻。</p></details>
+                <details><summary>可以指定想學的歌曲嗎？</summary><p>可以。課程會盡量以學生有興趣的歌曲作為練習素材，再依程度調整內容。</p></details>
+                <details><summary>需要自備樂器嗎？</summary><p>依課程項目與上課方式而定，預約時請告知目前是否已有樂器，再一起確認合適安排。</p></details>
+                <details><summary>費用與上課時間如何安排？</summary><p>會依上課方式、人數、地點與課程需求確認，請透過 LINE 或電話詢問。</p></details>
+            </div>
+        </section>
+
+        <section class="cta-band" id="contact" aria-labelledby="cta-title">
             <div>
-                <p class="eyebrow">Ready to Play</p>
-                <h2 id="cta-title">想開始學一首歌，或把樂團練得更完整？</h2>
+                <p class="eyebrow">READY TO PLAY</p>
+                <h2 id="cta-title">想學會第一首歌，或讓演奏再進一步？</h2>
+                <p>告訴我想學的樂器、目前程度、希望的上課方式與方便時段，我會協助確認適合的課程安排。</p>
             </div>
-            <a class="button primary" href="tel:0982569510">打電話預約</a>
+            <div class="cta-actions">
+                <a class="button primary" href="https://line.me/ti/p/~Sylvesterex" target="_blank" rel="noopener">LINE 詢問課程</a>
+                <a class="button light" id="call-button" href="tel:0982569510">電話預約</a>
+            </div>
         </section>
 
-        <section class="section profile-section" aria-labelledby="profile-title">
-            <div class="section-header">
-                <h2 id="profile-title">預約資訊</h2>
-                <span class="tag">Contact</span>
-            </div>
-            <dl class="info-list contact-list">
-                <div>
-                    <dt>老師</dt>
-                    <dd id="profile-name">陳 聖 典</dd>
-                </div>
-                <div>
-                    <dt>手機號碼</dt>
-                    <dd id="profile-phone">0982569510</dd>
-                </div>
-                <div>
-                    <dt>Line ID</dt>
-                    <dd id="profile-line">Sylvesterex</dd>
-                </div>
-                <div>
-                    <dt>Facebook</dt>
-                    <dd id="profile-facebook">陳 聖 典</dd>
-                </div>
-                <div>
-                    <dt>教學區域</dt>
-                    <dd id="profile-area">雙北</dd>
-                </div>
-            </dl>
-        </section>
-
-        <p class="footer">陳聖典老師｜流行音樂樂器教學</p>
+        <footer class="footer">
+            <div><strong id="profile-name">陳聖典老師</strong><span>雙北流行樂器教學</span></div>
+            <div class="footer-contact"><a id="profile-phone" href="tel:0982569510">0982-569-510</a><span>LINE：<b id="profile-line">Sylvesterex</b></span><span id="profile-area">雙北／線上</span></div>
+        </footer>
     </main>
+
+    <!-- 手機固定預約列，減少長頁面返回聯絡區的操作成本。 -->
+    <div class="mobile-contact" aria-label="快速預約">
+        <a href="tel:0982569510">電話預約</a>
+        <a href="https://line.me/ti/p/~Sylvesterex" target="_blank" rel="noopener">LINE 詢問</a>
+    </div>
     <button class="back-to-top" id="back-to-top" type="button" aria-label="回到最上面">↑</button>
     <script src="common.js"></script>
     <script src="memu.js"></script>
 </body>
 </html>
+
