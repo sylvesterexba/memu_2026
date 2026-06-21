@@ -2,7 +2,8 @@ const ResumeApp = (() => {
     const storageKey = "memuResumeData";
 
     const defaultData = {
-        summary: "從初學入門到樂團實戰，提供貝斯、吉他、爵士鼓、烏克麗麗與木箱鼓課程。以舞台經驗結合系統化教學，陪你把喜歡的音樂真正演奏出來。",
+        contentVersion: 3,
+        summary: "不限年齡與程度，提供貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導。依照你的目標與練習時間安排進度，從零基礎入門、技巧提升到舞台演出，都能找到適合自己的學習方式。",
         photo: "IMG_5952.JPG",
         photos: ["IMG_5952.JPG"],
         photoCaption: "陳聖典老師｜樂器教學與樂團指導",
@@ -31,10 +32,14 @@ const ResumeApp = (() => {
         ],
         performance: {
             main: "天作之合劇場《寂寞瑪奇朵》音樂劇樂手",
-            performances: ["天作之合劇場《寂寞瑪奇朵》音樂劇樂手"],
+            performances: [
+                "天作之合劇場《寂寞瑪奇朵》音樂劇樂手",
+                "躍演《勸世三姊妹》中文音樂劇 樂手"
+            ],
             sub: "曾於國家音樂廳、河岸留言等知名 Live House 與音樂場館演出，累積劇場、樂團、流行音樂與現場支援經驗。",
             artists: "紀文惠、古皓、簡愛、李玖哲、倪子鈞、辛龍、吳海文、倪安東、陳品伶、盧學叡、吳蓓雅、連燕秋、林芯儀、馬蹄楊、正皓玄、黃宣、楊奇煜、搖滾東方、Cozy Diary、教練、施少庸、小護士、Whiskey River",
             artistList: [
+                "黃宣",
                 "紀文惠",
                 "古皓",
                 "簡愛",
@@ -50,7 +55,6 @@ const ResumeApp = (() => {
                 "林芯儀",
                 "馬蹄楊",
                 "正皓玄",
-                "黃宣",
                 "楊奇煜",
                 "搖滾東方",
                 "Cozy Diary",
@@ -131,7 +135,36 @@ const ResumeApp = (() => {
     }
 
     function normalizeData(data) {
-        const normalized = mergeDeep(defaultData, data);
+        const source = data && typeof data === "object" ? clone(data) : {};
+
+        // Migrate previously saved profiles once, while preserving later edits made in the admin page.
+        if ((source.contentVersion || 1) < 2) {
+            source.performance = source.performance || {};
+            source.performance.performances = Array.isArray(source.performance.performances)
+                ? source.performance.performances
+                : [];
+            if (!source.performance.performances.length && source.performance.main) {
+                source.performance.performances.push(source.performance.main);
+            }
+            const newPerformance = "躍演《勸世三姊妹》中文音樂劇 樂手";
+            if (!source.performance.performances.includes(newPerformance)) {
+                source.performance.performances.push(newPerformance);
+            }
+            source.contentVersion = 2;
+        }
+
+        if ((source.contentVersion || 1) < 3) {
+            const artistList = source.performance?.artistList;
+            if (Array.isArray(artistList) && artistList.includes("黃宣")) {
+                source.performance.artistList = [
+                    "黃宣",
+                    ...artistList.filter((artist) => artist !== "黃宣")
+                ];
+            }
+            source.contentVersion = 3;
+        }
+
+        const normalized = mergeDeep(defaultData, source);
         normalized.photos = normalized.photos?.length ? normalized.photos : [normalized.photo].filter(Boolean);
         normalized.performance.performances = normalized.performance.performances?.length
             ? normalized.performance.performances
@@ -268,3 +301,4 @@ const ResumeApp = (() => {
         setLabelValue
     };
 })();
+
