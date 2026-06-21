@@ -85,14 +85,17 @@ function applyResumeData(data) {
     setText("#photo-caption", data.photoCaption);
     setupPhotoCarousel(data.photos);
 
-    const phoneLink = document.querySelector("#call-button");
-    if (phoneLink && data.profile.phone) {
-        phoneLink.href = `tel:${data.profile.phone}`;
+    // Contact links appear in several responsive layouts, so keep every entry in sync with admin data.
+    if (data.profile.phone) {
+        document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+            link.href = `tel:${data.profile.phone}`;
+        });
     }
 
-    const ctaPhoneLink = document.querySelector(".cta-band .button.primary");
-    if (ctaPhoneLink && data.profile.phone) {
-        ctaPhoneLink.href = `tel:${data.profile.phone}`;
+    if (data.profile.line) {
+        document.querySelectorAll('a[href*="line.me"]').forEach((link) => {
+            link.href = `https://line.me/ti/p/~${encodeURIComponent(data.profile.line)}`;
+        });
     }
 
     setText("#quick-phone", data.profile.phone);
@@ -103,7 +106,7 @@ function applyResumeData(data) {
     setText("#profile-phone", data.profile.phone);
     setText("#profile-facebook", data.profile.facebook);
     setText("#profile-line", data.profile.line);
-    setText("#profile-area", "雙北");
+    setText("#profile-area", "雙北／線上");
 
     renderList("#career-list", data.career, 6);
     renderList("#performance-list", data.performance.performances, 3);
@@ -142,3 +145,4 @@ if (backToTopButton) {
 
 window.addEventListener("scroll", updateBackToTopButton, { passive: true });
 updateBackToTopButton();
+
