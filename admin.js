@@ -32,6 +32,7 @@ const listEditors = {
     clubItems: document.querySelector("#clubItems")
 };
 
+// 拖拉排序的暫存狀態；pointerup/cancel 時會清空。
 let activeDrag = null;
 
 function setStatus(message) {
@@ -57,6 +58,7 @@ function updateOrderButtons(editor) {
 }
 
 function getDragAfterElement(container, y) {
+    // 用滑鼠位置和每列中心點比較，找出拖曳列應插入的位置。
     const rows = [...container.querySelectorAll(".sortable-row:not(.dragging)")];
     return rows.reduce((closest, row) => {
         const box = row.getBoundingClientRect();
@@ -110,6 +112,7 @@ function moveRow(row, direction) {
 }
 
 function createDragHandle(row) {
+    // 使用 Pointer Events 同時支援滑鼠與觸控拖拉。
     const handle = document.createElement("button");
     handle.className = "drag-handle";
     handle.type = "button";
@@ -244,6 +247,7 @@ function collectPhotoEditor() {
 }
 
 function fillForm(data) {
+    // API / LocalStorage 讀出的資料在這裡對應回各個後台欄位。
     fields.summary.value = data.summary;
     fillPhotoEditor(data.photos);
     fields.photoCaption.value = data.photoCaption;
@@ -265,6 +269,7 @@ function fillForm(data) {
 }
 
 function collectForm() {
+    // 儲存前把分散的表單欄位重新組成 common.js 使用的資料結構。
     const performances = collectListEditor("performanceItems");
     const artists = collectListEditor("artistItems");
     const photos = collectPhotoEditor();
@@ -301,6 +306,7 @@ function collectForm() {
 }
 
 async function loadFormData() {
+    // 優先載入 MySQL 資料；API 不可用時退回本機快取。
     try {
         const data = await getDataFromApi();
         saveLocalData(data);
@@ -314,6 +320,7 @@ async function loadFormData() {
 
 document.querySelector("#saveButton").addEventListener("click", async () => {
     const data = collectForm();
+    // 先寫入 LocalStorage，確保 API 儲存失敗時編輯內容仍保留在本機。
     saveLocalData(data);
 
     try {
@@ -361,6 +368,7 @@ document.querySelector("#photoFileInput").addEventListener("change", async (even
             const uploaded = await uploadPhotoToApi(file);
             listEditors.photoItems.appendChild(createPhotoRow(uploaded.url, uploaded.name));
         } catch (error) {
+            // 伺服器上傳失敗時，退回壓縮 Data URL，讓後台仍可暫存照片。
             const dataUrl = await fileToCompressedDataUrl(file);
             listEditors.photoItems.appendChild(createPhotoRow(dataUrl, file.name));
         }

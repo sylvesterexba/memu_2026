@@ -1,6 +1,7 @@
 const ResumeApp = (() => {
     const storageKey = "memuResumeData";
 
+    // API 或 LocalStorage 沒有資料時使用的完整預設資料結構。
     const defaultData = {
         contentVersion: 5,
         summary: "不限年齡與程度，提供貝斯、吉他、爵士鼓、烏克麗麗、木箱鼓與樂團指導。依照你的目標與練習時間安排進度，從零基礎入門、技巧提升到舞台演出，都能找到適合自己的學習方式。",
@@ -140,7 +141,7 @@ const ResumeApp = (() => {
     function normalizeData(data) {
         const source = data && typeof data === "object" ? clone(data) : {};
 
-        // Migrate previously saved profiles once, while preserving later edits made in the admin page.
+        // 逐版補齊舊資料，避免已儲存的後台內容因欄位新增而壞掉。
         if ((source.contentVersion || 1) < 2) {
             source.performance = source.performance || {};
             source.performance.performances = Array.isArray(source.performance.performances)
@@ -195,6 +196,7 @@ const ResumeApp = (() => {
             source.contentVersion = 5;
         }
 
+        // 最後再與預設資料合併，確保前台渲染需要的巢狀欄位都存在。
         const normalized = mergeDeep(defaultData, source);
         normalized.photos = normalized.photos?.length ? normalized.photos : [normalized.photo].filter(Boolean);
         normalized.performance.performances = normalized.performance.performances?.length
@@ -207,6 +209,7 @@ const ResumeApp = (() => {
     }
 
     function getLocalData() {
+        // 先讀本機快取，讓前台在 API 尚未回應或失敗時仍可顯示內容。
         const saved = localStorage.getItem(storageKey);
         if (!saved) {
             return clone(defaultData);
@@ -224,6 +227,7 @@ const ResumeApp = (() => {
     }
 
     async function getDataFromApi() {
+        // API 回傳後仍走 normalizeData，讓 MySQL 內的舊 JSON 自動升級。
         const response = await fetch("api/resume.php", {
             headers: {
                 Accept: "application/json"
@@ -243,6 +247,7 @@ const ResumeApp = (() => {
     }
 
     async function saveDataToApi(data) {
+        // 後台送出前先正規化，讓 LocalStorage 與 MySQL 保存相同資料形狀。
         const response = await fetch("api/resume.php", {
             method: "POST",
             headers: {
@@ -276,6 +281,7 @@ const ResumeApp = (() => {
     }
 
     function fileToCompressedDataUrl(file) {
+        // 圖片 API 失敗時使用：壓縮成 Data URL 暫存在本機資料中。
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
             reader.onerror = () => reject(new Error("讀取照片失敗"));

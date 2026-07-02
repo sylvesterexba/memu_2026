@@ -1,6 +1,7 @@
 const { getLocalData, getDataFromApi, saveLocalData, setText, setLabelValue } = ResumeApp;
 
 function renderList(selector, items, visibleCount = 5) {
+    // 長清單預設只顯示前幾筆，按鈕切換時保留展開狀態在元素 dataset。
     const list = document.querySelector(selector);
     if (!list || !Array.isArray(items)) {
         return;
@@ -38,6 +39,7 @@ function renderList(selector, items, visibleCount = 5) {
 }
 
 function setupPhotoCarousel(photos) {
+    // 同一份照片資料同時更新桌機 img 與手機 picture source。
     const image = document.querySelector("#profile-photo");
     const mobileSource = document.querySelector(".profile-photo-mobile");
     const prevButton = document.querySelector("#photo-prev");
@@ -86,11 +88,12 @@ function setupPhotoCarousel(photos) {
 }
 
 function applyResumeData(data) {
+    // 前台所有可由後台維護的內容，都集中由這裡套到 DOM。
     setText("#resume-summary", data.summary);
     setText("#photo-caption", data.photoCaption);
     setupPhotoCarousel(data.photos);
 
-    // Contact links appear in several responsive layouts, so keep every entry in sync with admin data.
+    // 聯絡連結分散在桌機、手機與 footer，需同步套用後台資料。
     if (data.profile.phone) {
         document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
             link.href = `tel:${data.profile.phone}`;
@@ -123,6 +126,7 @@ function applyResumeData(data) {
     renderList("#club-list", data.teaching.clubs, 6);
 }
 
+// 先用 LocalStorage / 預設資料快速顯示，再以 API 最新資料覆蓋。
 applyResumeData(getLocalData());
 getDataFromApi()
     .then((data) => {
