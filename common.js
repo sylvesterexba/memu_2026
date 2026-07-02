@@ -226,8 +226,17 @@ const ResumeApp = (() => {
         localStorage.setItem(storageKey, JSON.stringify(normalizeData(data)));
     }
 
+    function canUseApi() {
+        // GitHub Pages 與直接開檔不支援 PHP API，直接交給既有 fallback 處理。
+        return location.protocol !== "file:" && !location.hostname.endsWith("github.io");
+    }
+
     async function getDataFromApi() {
         // API 回傳後仍走 normalizeData，讓 MySQL 內的舊 JSON 自動升級。
+        if (!canUseApi()) {
+            throw new Error("目前環境不支援 API");
+        }
+
         const response = await fetch("api/resume.php", {
             headers: {
                 Accept: "application/json"
@@ -248,6 +257,10 @@ const ResumeApp = (() => {
 
     async function saveDataToApi(data) {
         // 後台送出前先正規化，讓 LocalStorage 與 MySQL 保存相同資料形狀。
+        if (!canUseApi()) {
+            throw new Error("目前環境不支援 API");
+        }
+
         const response = await fetch("api/resume.php", {
             method: "POST",
             headers: {
@@ -264,6 +277,10 @@ const ResumeApp = (() => {
     }
 
     async function uploadPhotoToApi(file) {
+        if (!canUseApi()) {
+            throw new Error("目前環境不支援 API");
+        }
+
         const formData = new FormData();
         formData.append("photo", file);
 

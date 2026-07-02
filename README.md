@@ -21,8 +21,8 @@
 
 ```text
 memu_2026/
-├── index.php              # 網站入口，輸出 memu.html
-├── memu.html              # 前台展示頁 HTML
+├── index.html             # 前台展示頁 HTML，也是 GitHub Pages 預設首頁
+├── index.php              # PHP 環境入口，輸出 index.html
 ├── admin.html             # 後台內容管理頁
 ├── common.js              # 共用資料模型、正規化、LocalStorage、API 與圖片工具
 ├── memu.js                # 前台資料渲染、照片輪播、查看更多、回到頂端
@@ -68,7 +68,7 @@ LocalStorage 預先顯示
 
 ## 本機開發說明
 
-- 前台可直接開啟 `memu.html` 預覽靜態畫面。
+- 前台可直接開啟 `index.html` 預覽靜態畫面。
 - 若要使用 API、MySQL 儲存與圖片上傳，需要 PHP + MySQL 環境。
 - `database.sql` 可用來建立 `memu_resume` 資料庫與資料表。
 - `api/config.php` 目前需要依部署環境調整資料庫設定。

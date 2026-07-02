@@ -1,3 +1,3 @@
 <?php
 
-readfile(__DIR__ . '/memu.html');
+readfile(__DIR__ . '/index.html');
